@@ -1,0 +1,101 @@
+<%- include('./form/Header'); -%>
+<%- include('./form/CSS'); -%>
+<%- include('./form/endHeader'); -%>
+
+<div id="wrapper">
+  <%- include('./form/Sidebar'); -%>
+
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <!-- Topbar -->
+      <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"></nav>
+      <!-- End of Topbar -->
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+
+
+
+        <div class="col-sm-10">
+          <div class="container">
+              <a href="manageStaff/addStaff" class="btn btn-success" style="float: right;">เพิ่ม</a>
+            <ul class="nav nav-tabs">
+              <li class="nav-item"><a class="nav-link active" href="/manage/staff" style="float: left;">จัดการเจ้าหน้าที่</a></li>
+            </ul>
+            <div style="clear: both"></div>
+            <div style="height: 300px !important; overflow: auto;">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <td><b>รหัสเจ้าหน้าที่</b></td>
+                    <td><b>ชื่อ-นามสกุล</b></td>
+                    <td><b>คณะ</b></td>
+                    <td><b>สาขา</b></td>
+                    <td><b>ตำแหน่ง</b></td>
+                    <td><b>ข้อมูลเพิ่มเติม</b></td>
+                    <td><b>แก้ไข</b></td>
+                    <td><b>ลบ</b></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < person.length; i++) { %>
+
+                  <tr>
+                    <td><%= person[i].username %></td>
+                    <td><%= person[i].firstName %> <%= person[i].lastName %></td>
+                    <td><%= person[i].faculty %></td>
+                    <td><%= person[i].major %></td>
+                    <td><%= person[i].position %></td>
+                    <td><a href="#" class="btn btn-primary">ตรวจสอบ</a></td>
+                    <td><a href="manageStaff/edit/<%= person[i]._id %>" class="btn btn-primary">Edit</a></td>
+                    <td><a href="manageStaff/delete/<%= person[i]._id %>" class="btn btn-danger">Delete</a></td>
+                  </tr>
+
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+  </div>
+  <!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>กูทำเองไม่ได้ขอตังใคร xd</span>
+    </div>
+  </div>
+</footer>
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+
+
+<%- include('./form/Bottom'); -%>

@@ -1,0 +1,80 @@
+<div class="modal fade studentModal" role="dialog" aria-labelledby="studentModal">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body" id="studentModal">
+        <input type="text" name="name" id="name">
+        <input type="text" name="surname" id="surname">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    <div class="col-sm-10">
+        <div class="container">
+
+          <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="/manage/student">จัดการนิสิต</a></li>
+            <li class="nav-item"><a class="nav-link" href="/manage/staff">จัดการเจ้าหน้าที่</a></li>
+            <li class="nav-item"><a class="nav-link" href="/manage/teacher">จัดการอาจารย์</a></li>
+          </ul>
+
+          <div style="height: 300px !important; overflow: scroll;">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <td><b>รหัสนิสิต</b></td>
+                  <td><b>ชื่อ-นามสกุล</b></td>
+                  <td><b>คณะ</b></td>
+                  <td><b>สาขา</b></td>
+                  <td><b>ชั้นปี</b></td>
+                  <td><b>สาย</b></td>
+                  <td><b>กลุ่มเรียน</b></td>
+                  <td><b>ข้อมูลเพิ่มเติม</b></td>
+                  <td><b>แก้ไข</b></td>
+                  <td><b>ลบ</b></td>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i=0; i < person.length; i++) { %>
+
+                <tr>
+                  <td><%= person[i].username %></td>
+                  <td><%= person[i].firstName %> <%= person[i].lastName %></td>
+                  <td><%= person[i].faculty %></td>
+                  <td><%= person[i].major %></td>
+                  <td><%= person[i].year %></td>
+                  <td><%= person[i].branch %></td>
+                  <td><%= person[i].sector %></td>
+                  <td><a href="#" class="btn btn-primary">ตรวจสอบ</a></td>
+                  <td><a href="student/edit/<%= person[i]._id %>" class="btn btn-primary">Edit</a></td>
+                  <td><a href="student/delete/<%= person[i]._id %>" class="btn btn-danger">Delete</a></td>
+                </tr>
+
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+
+          <a href="student/addStudent" class="btn btn-success">เพิ่ม</a>
+
+        </div>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  var xd = (abc, fdg) => {
+
+    name: $('#name').val(abc)
+    surname: $('#surname').val(fdg)
+  }
+
+</script>

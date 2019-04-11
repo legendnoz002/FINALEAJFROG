@@ -1,0 +1,93 @@
+<%- include('./form/Header'); -%>
+<%- include('./form/CSS'); -%>
+<%- include('./form/endHeader'); -%>
+
+<div id="wrapper">
+  <%- include('./form/Sidebar'); -%>
+
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+      <!-- Topbar -->
+      <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"></nav>
+      <!-- End of Topbar -->
+
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+        <!-- content ข้างในเขียนในนี้นะ -->
+        <div class="col-sm-10">
+          <div class="container">
+            <ul class="nav nav-tabs" style="float: left;">
+              <li class="nav-item"><a class="nav-link active">จัดการคอร์สเรียน</a></li>
+            </ul>
+            <a href="manageCourse/addCourse" class="btn btn-success" style="float:right;">เพิ่มคอร์สเรียน</a>
+            <div style="clear: both"></div>
+            <div style="height: 300px !important; overflow: auto;">
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <td><b>กลุ่มเรียน</b></td>
+                    <td><b>อาจารย์ผู้สอน</b></td>
+                    <td><b>จัดการคอร์สเรียน</b></td>
+                    <td><b>แก้ไข</b></td>
+                    <td><b>ลบ</b></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for(var i=0; i < course.length; i++) { %>
+
+                  <tr>
+                    <td>
+                      <%= course[i].section %>
+                    </td>
+                    <td><a href="#" class="btn btn-primary">อาจารย์ผู้สอน</a></td>
+                    <td><a href="#" class="btn btn-primary">จัดการคอร์สเรียน</a></td>
+                    <td><a href="course/edit/<%= course[i]._id %>" class="btn btn-primary">แก้ไข</a></td>
+                    <td><a href="course/delete/<%= course[i]._id %>" class="btn btn-danger">ลบ</a></td>
+                  </tr>
+
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+
+
+
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+      <!-- /.container-fluid -->
+
+    </div>
+    <!-- End of Main Content -->
+
+
+
+    <!-- Footer -->
+    <footer class="sticky-footer bg-white">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>กูทำเองไม่ได้ขอตังใคร xd</span>
+        </div>
+      </div>
+    </footer>
+    <!-- End of Footer -->
+
+  </div>
+  <!-- End of Content Wrapper -->
+
+</div>
+
+
+<%- include('./form/Bottom'); -%>
